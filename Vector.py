@@ -9,6 +9,14 @@ class Vector:
     y: float = 0
     z: float = 0
 
+    @staticmethod
+    def getMidpoint(a: Vector, b: Vector) -> Vector:
+        return type(a)(
+            x=(a.x + b.x) / 2,
+            y=(a.y + b.y) / 2,
+            z=(a.z + b.z) / 2,
+        )
+
     def __iadd__(self, other: Vector) -> Vector:
         self.x += other.x
         self.y += other.y
@@ -17,6 +25,16 @@ class Vector:
     def __add__(self, other: Vector) -> Vector:
         new = copy(self)
         new += other
+        return new
+
+    def __isub__(self, other: Vector) -> Vector:
+        self.x -= other.x
+        self.y -= other.y
+        self.z -= other.z
+        return self
+    def __sub__(self, other: Vector) -> Vector:
+        new = copy(self)
+        new -= other
         return new
 
     def __imul__(self, scalar: float) -> Vector:
