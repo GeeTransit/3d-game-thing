@@ -17,6 +17,7 @@ class Point:
         self.y = int(self.y)
         self.z = int(self.z)
 
+    @staticmethod
     def getMidpoint(p: Point, q: Point) -> Point:
         return Point((p.x+q.x)//2, (p.y+q.y)//2, (p.z+q.z)//2)
 
