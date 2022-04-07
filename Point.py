@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from copy import copy
 from dataclasses import dataclass
+from warnings import warn
 
 from Vector import Vector
 
@@ -12,6 +13,11 @@ class Point:
     z: int = 0
 
     def __post_init__(self) -> None:
+        warn(
+            "use Vector class instead",
+            DeprecationWarning,
+            stacklevel=3,  # We're called from the generated __init__
+        )
         # Ensure components are ints
         self.x = int(self.x)
         self.y = int(self.y)
