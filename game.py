@@ -319,7 +319,7 @@ def main() -> None:
                         # viewing frustum
                         while True:
                             midpoint = Vector.getMidpoint(inView, outOfView)
-                            if midpoint == inView or midpoint == outOfView:
+                            if abs(midpoint - inView) < 1 or abs(midpoint - outOfView) < 1:
                                 break
                             elif isInView(midpoint):
                                 inView = midpoint
