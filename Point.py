@@ -6,6 +6,8 @@ from warnings import warn
 
 import Vector
 
+warn("use Vector module instead", DeprecationWarning, stacklevel=2)
+
 @dataclass
 class Point:
     x: int = 0
