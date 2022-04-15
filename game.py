@@ -23,10 +23,10 @@ MOUSE_SENS_Y = int(1500/SCALE)
 numPolygons = 2
 polygons = [
     Polygon([
-        Point(100, 100, 1000),
-        Point(300, 100, 1000),
-        Point(300, 300, 1000),
-        Point(100, 300, 1000),
+        Vector(100, 100, 1000),
+        Vector(300, 100, 1000),
+        Vector(300, 300, 1000),
+        Vector(100, 300, 1000),
     ]),
 ]
 
@@ -75,10 +75,10 @@ def main() -> None:
     for x in range(-1000, 1000, 200):
         polygons.append(
             Polygon([
-                Point(x, 1000, -10000),
-                Point(x+50, 1000, -10000),
-                Point(x+50, 1000, 10000),
-                Point(x, 1000, 10000),
+                Vector(x, 1000, -10000),
+                Vector(x+50, 1000, -10000),
+                Vector(x+50, 1000, 10000),
+                Vector(x, 1000, 10000),
             ])
         )
     numPolygons = len(polygons)
