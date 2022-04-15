@@ -2,7 +2,6 @@ import tkinter as tk
 from typing import TYPE_CHECKING, List, Union
 
 from Matrix import Matrix
-from Point import Point
 from Polygon import Polygon
 from Vector import Vector
 
@@ -37,7 +36,7 @@ mouseX = mouseY = -1
 windowWidth: int
 windowHeight: int
 
-def isInView(p: Union[Polygon, Point, Vector]) -> bool:
+def isInView(p: Union[Polygon, Vector]) -> bool:
     if isinstance(p, Polygon):
         # true if all four of the polygon's points are in view
         for i in range(len(p.vertices)):

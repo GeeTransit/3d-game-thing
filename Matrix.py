@@ -2,7 +2,6 @@ from math import sin, cos
 from typing import overload, Union
 
 from Polygon import Polygon
-from Point import Point
 from Vector import Vector
 
 class Matrix:
@@ -12,14 +11,10 @@ class Matrix:
 
     @overload
     @staticmethod
-    def rotateX(p: Point, angle: float) -> Point: ...
-
-    @overload
-    @staticmethod
     def rotateX(p: Vector, angle: float) -> Vector: ...
 
     @staticmethod
-    def rotateX(p: Union[Polygon, Point, Vector], angle: float) -> Union[Polygon, Point, Vector]:
+    def rotateX(p: Union[Polygon, Vector], angle: float) -> Union[Polygon, Vector]:
         if isinstance(p, Polygon):
             return type(p)([Matrix.rotateX(p, angle) for p in p.vertices])
         return type(p)(
@@ -34,14 +29,10 @@ class Matrix:
 
     @overload
     @staticmethod
-    def rotateY(p: Point, angle: float) -> Point: ...
-
-    @overload
-    @staticmethod
     def rotateY(p: Vector, angle: float) -> Vector: ...
 
     @staticmethod
-    def rotateY(p: Union[Polygon, Point, Vector], angle: float) -> Union[Polygon, Point, Vector]:
+    def rotateY(p: Union[Polygon, Vector], angle: float) -> Union[Polygon, Vector]:
         if isinstance(p, Polygon):
             return type(p)([Matrix.rotateY(p, angle) for p in p.vertices])
         return type(p)(

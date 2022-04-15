@@ -3,9 +3,6 @@ from __future__ import annotations
 import math
 from copy import copy
 from dataclasses import dataclass
-from typing import Union
-
-import Point
 
 @dataclass
 class Vector:
@@ -15,8 +12,8 @@ class Vector:
 
     @staticmethod
     def getMidpoint(
-        a: Union[Point.Point, Vector],
-        b: Union[Point.Point, Vector],
+        a: Vector,
+        b: Vector,
     ) -> Vector:
         return Vector(
             x=(a.x + b.x) / 2,
