@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 from copy import copy
 from dataclasses import dataclass
 from typing import Union
@@ -22,6 +23,9 @@ class Vector:
             y=(a.y + b.y) / 2,
             z=(a.z + b.z) / 2,
         )
+
+    def __abs__(self) -> float:
+        return math.sqrt(self.x**2 + self.y**2 + self.z**2)
 
     def __iadd__(self, other: Vector) -> Vector:
         self.x += other.x
