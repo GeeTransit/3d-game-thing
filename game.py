@@ -37,7 +37,7 @@ mouseX = mouseY = -1
 windowWidth: int
 windowHeight: int
 
-def isInView(p: Union[Polygon, Point]) -> bool:
+def isInView(p: Union[Polygon, Point, Vector]) -> bool:
     if isinstance(p, Polygon):
         # true if all four of the polygon's points are in view
         for i in range(len(p.vertices)):
@@ -318,7 +318,7 @@ def main() -> None:
                         # inView and outView with the boundary of the
                         # viewing frustum
                         while True:
-                            midpoint = Point.getMidpoint(inView, outOfView)
+                            midpoint = Vector.getMidpoint(inView, outOfView)
                             if midpoint == inView or midpoint == outOfView:
                                 break
                             elif isInView(midpoint):

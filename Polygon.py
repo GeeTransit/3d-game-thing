@@ -2,14 +2,14 @@ from __future__ import annotations
 
 from copy import copy
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Union
 
 from Vector import Vector
 from Point import Point
 
 @dataclass
 class Polygon:
-    vertices: List[Point] = field(default_factory=list)
+    vertices: List[Union[Point, Vector]] = field(default_factory=list)
 
     def __iadd__(self, other: Vector) -> Polygon:
         for vertex in self.vertices:
