@@ -2,6 +2,9 @@ from __future__ import annotations
 
 from copy import copy
 from dataclasses import dataclass
+from typing import Union
+
+import Point
 
 @dataclass
 class Vector:
@@ -10,8 +13,11 @@ class Vector:
     z: float = 0
 
     @staticmethod
-    def getMidpoint(a: Vector, b: Vector) -> Vector:
-        return type(a)(
+    def getMidpoint(
+        a: Union[Point.Point, Vector],
+        b: Union[Point.Point, Vector],
+    ) -> Vector:
+        return Vector(
             x=(a.x + b.x) / 2,
             y=(a.y + b.y) / 2,
             z=(a.z + b.z) / 2,
